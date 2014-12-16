@@ -223,6 +223,7 @@ static void setproctitle(const char *fmt, ...) {
 
   if (nul < SPT.nul) {
     *SPT.nul = '.';
+    memset(nul, 0, SPT.nul - nul);
   } else if (nul == SPT.nul && &nul[1] < SPT.end) {
     *SPT.nul = ' ';
     *++nul = '\0';
